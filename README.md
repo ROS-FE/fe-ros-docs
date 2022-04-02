@@ -1,2 +1,2 @@
 # fe-ros-docs
-Holds the workshop material in the ReadTheDocs format.
+Holds the source file for the Github Pages webpage built with [MkDocs](https://www.mkdocs.org/).
