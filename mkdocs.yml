@@ -1,3 +1,13 @@
+
+# Project information
+site_url: https://ros-fe.github.io/fe-ros-docs/
+site_author: Timotej Gašpar
+site_description: >-
+  FE ROS workshop documentation page.
+# Repository
+repo_name: ROS-FE/fe-ros-docs
+repo_url: https://github.com/ROS-FE/fe-ros-docs
+
 site_name: FE ROS
 nav:
     - Home: 'index.md'
