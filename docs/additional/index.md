@@ -46,7 +46,8 @@ Desni miškin klik je “paste” v cmd.
 
 Ko namestis, naredi `catkin_ws` 
 
-```python linenums="1"
+```
+cd
 mkdir catkin_ws 
 cd catkin_ws 
 mkdir src 
@@ -56,23 +57,28 @@ catkin_make
 
 Dodaj še source za ROS spremenljivke 
 
-```python linenums="1"
+```
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 source ~/.bashrc 
 ```
 
 ## Nastavitev statičnega IP 
 
-https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/ 
+Vir: https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/ 
+
+S spodnjim ukazom dobi seznam vseh mrežnih naprav:
+````
+ip link
+```
+
+
+
 
 # This file is generated from information provided by the datasource.  Changes 
-
 # to it will not persist across an instance reboot.  To disable cloud-init's 
-
 # network configuration capabilities, write a file 
 
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following: 
-
 # network: {config: disabled} 
 
 network: 
