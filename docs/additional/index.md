@@ -82,7 +82,7 @@ sudo nano /etc/netplan/01-netcfg.yaml
 
 Dodaj spodnjo kodo, kjer nastaviš ustrezne mrežne nastavitve. Pozorni bodite na ustrezne zamike (uporabite presledke ne tabulator).
 
-```python hl_lines="5 6 7 8 9"
+```python linenums="1" hl_lines="5 6 7 8 9"
 network: 
    ethernets: 
       eth0: 
@@ -95,6 +95,14 @@ network:
          version: 2 
 ```
 
+Na koncu ponovno zaženi netplan
+```
+sudo netplan apply
+```
+ter preveri, če so nastavitve pravilne z
+```
+ifconfig
+```
 
 ## Povezava s SSH 
 
