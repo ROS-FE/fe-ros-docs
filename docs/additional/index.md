@@ -16,7 +16,13 @@ Extrahiraj sliko (7zip)
 
 Sledi navodilom za namestitev: https://help.ubuntu.com/community/Installation/FromImgFiles 
 
-Na RaspberryPi priklopi ekran, miško in tipkovnico, se prijavi v ubuntu sistem (ui: ubuntu, pwd: ubuntu) in spremeni geslo.
+Na RaspberryPi priklopi ekran, miško in tipkovnico, se prijavi v ubuntu sistem
+
+```python
+username: ubuntu
+password: ubuntu
+```
+in spremeni geslo.
 
 Sledi navodilom za postavitev mreže in SSH 
 
