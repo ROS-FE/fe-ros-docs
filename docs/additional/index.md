@@ -24,9 +24,7 @@ password: ubuntu
 ```
 in spremeni geslo.
 
-Sledi navodilom za postavitev mreže in SSH 
-
-https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet 
+Sledi navodilom za postavitev mreže in SSH: https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet 
 
 
 Spremeni geslo: 
@@ -67,41 +65,28 @@ source ~/.bashrc
 Vir: https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/ 
 
 S spodnjim ukazom dobi seznam vseh mrežnih naprav:
-````
+```
 ip link
 ```
 
-
-
-
+```python linenums="1"
 # This file is generated from information provided by the datasource.  Changes 
 # to it will not persist across an instance reboot.  To disable cloud-init's 
 # network configuration capabilities, write a file 
-
 # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following: 
 # network: {config: disabled} 
 
 network: 
-
-    ethernets: 
-
-        eth0: 
-
-            dhcp4: false 
-
-            addresses: 
-
-              - 192.168.65.60/24 
-
-            gateway4: 192.168.65.254 
-
-            nameservers: 
-
-              addresses: [192.168.65.14, 193.2.1.66] 
-
-    version: 2 
-
- 
+   ethernets: 
+      eth0: 
+         dhcp4: false 
+         addresses: 
+            - 192.168.65.60/24 
+         gateway4: 192.168.65.254 
+         nameservers: 
+            addresses: [192.168.65.14, 193.2.1.66] 
+         version: 2 
+```
 
 Povezava s SSH 
 
