@@ -25,18 +25,7 @@ https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-o
 
 Spremeni geslo: 
 
-```python
+```py linenums="1"
 sudo passwd ubuntu 
 ```
-
-```python
-import rospy
-
-if __name__ == "__main__:
-    rospy.init_node('gazebo_tutorial')
-
-    rospy.spin()
-
-```
-
 
