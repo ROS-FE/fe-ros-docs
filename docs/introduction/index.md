@@ -6,17 +6,15 @@ Welcome to the ROS FE workshop. In this part of the workshop you will learn the 
 
 Why, oh why????
 
-Topics
-==============
+## Topics
 
 This is area for topics.
 
-Services
---------------
+## Services
 
 This will be services.
 
-# msg/srv
+## msg/srv
 
 This are msgs.
 
@@ -24,7 +22,7 @@ This are msgs.
 
 And this launch files.
 
-### parameter server
+## parameter server
 
 Sometimes comes handy.
 
