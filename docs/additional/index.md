@@ -66,16 +66,23 @@ Vir: https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-0
 
 S spodnjim ukazom dobi seznam vseh mrežnih naprav:
 ```
-ip link
+ifconfig
+```
+Poišči ustrezno mrežno kartico (po navadi je `eth0`).
+
+Postavi se v `/etc/netplan`
+```
+cd /etc/netplan
+```
+in odpri `01-netcfg.yaml` (če je ni, preveri z `ll`)
+
+```
+sudo nano /etc/netplan/01-netcfg.yaml
 ```
 
-```python linenums="1"
-# This file is generated from information provided by the datasource.  Changes 
-# to it will not persist across an instance reboot.  To disable cloud-init's 
-# network configuration capabilities, write a file 
-# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following: 
-# network: {config: disabled} 
+Dodaj spodnjo kodo, kjer nastaviš ustrezne mrežne nastavitve. Pozorni bodite na ustrezne zamike (uporabite presledke ne tabulator).
 
+```python hl_lines="5 6 7 8 9"
 network: 
    ethernets: 
       eth0: 
@@ -88,15 +95,18 @@ network:
          version: 2 
 ```
 
-Povezava s SSH 
+
+## Povezava s SSH 
 
 V Win CMD se povežeš s:  
-
+```
 ssh RPI_uporabnisko_ime@RPI_IP 
-
+```
  
 
-Povezava z VS Code 
+## Povezava z VS Code 
 
 Sledi navodilom: https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/ 
+Pozor! Potrebuješ delujočo mrežno povezavo!
+
 
