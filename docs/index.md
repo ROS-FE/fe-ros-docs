@@ -12,3 +12,4 @@ This workshop will cover the following topics:
 * Transformation and trajectory planning
 * Visualization & Simulation
 * Practical work with robots
+* Additional knowledge
