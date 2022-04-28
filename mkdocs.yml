@@ -17,7 +17,7 @@ nav:
     - Visualization & Simulation: 'simulation/index.md'
     - Practical work with robots: 'practical/index.md'
     - Sponsors: 'sponsors/index.md'
-    - Additional: 'additional/index.md'
+    - Additional knowledge: 'additional/index.md'
 theme:
   name: material
   palette: 
