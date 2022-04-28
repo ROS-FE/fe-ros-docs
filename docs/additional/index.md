@@ -27,5 +27,6 @@ Spremeni geslo:
 
 ```python linenums="1"
 sudo passwd ubuntu 
+
 ```
 
