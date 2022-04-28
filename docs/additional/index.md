@@ -24,6 +24,6 @@ https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-o
 
 
 Spremeni geslo: 
-'''python
+```
 sudo passwd ubuntu 
-'''
+```
