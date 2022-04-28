@@ -1,4 +1,4 @@
-Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4 
+# Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4 
 
 - Headless uporaba RPI 
 - Povezava preko SSH 
@@ -6,7 +6,7 @@ Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4
 
  
 
-Namestitev Ubuntu 18.04 Server 
+## Namestitev Ubuntu 18.04 Server 
 
 Uporabi Disc Management in formatiraj 16 Gb SD kartico 
 
