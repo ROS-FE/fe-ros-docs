@@ -4,6 +4,8 @@ Welcome to the ROS FE workshop. In this part of the workshop you will learn the 
 
 ## Why ROS?
 
+Why, oh why????
+
 Topics
 ==============
 
