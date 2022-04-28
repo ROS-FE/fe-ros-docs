@@ -36,3 +36,76 @@ sudo passwd ubuntu
 
 ```
 
+## Namestitev ROS 
+
+Poveži se preko SSH 
+
+Sledi navodilom, namestiš ROS-Base (ker je Ubuntu server, nima smisla nameščati grafična orodja): http://wiki.ros.org/melodic/Installation/Ubuntu 
+
+Desni miškin klik je “paste” v cmd. 
+
+Ko namestis, naredi `catkin_ws` 
+
+```python linenums="1"
+mkdir catkin_ws 
+cd catkin_ws 
+mkdir src 
+cd .. 
+catkin_make 
+```
+
+Dodaj še source za ROS spremenljivke 
+
+```python linenums="1"
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
+source ~/.bashrc 
+```
+
+## Nastavitev statičnega IP 
+
+https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/ 
+
+# This file is generated from information provided by the datasource.  Changes 
+
+# to it will not persist across an instance reboot.  To disable cloud-init's 
+
+# network configuration capabilities, write a file 
+
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following: 
+
+# network: {config: disabled} 
+
+network: 
+
+    ethernets: 
+
+        eth0: 
+
+            dhcp4: false 
+
+            addresses: 
+
+              - 192.168.65.60/24 
+
+            gateway4: 192.168.65.254 
+
+            nameservers: 
+
+              addresses: [192.168.65.14, 193.2.1.66] 
+
+    version: 2 
+
+ 
+
+Povezava s SSH 
+
+V Win CMD se povežeš s:  
+
+ssh RPI_uporabnisko_ime@RPI_IP 
+
+ 
+
+Povezava z VS Code 
+
+Sledi navodilom: https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/ 
+
