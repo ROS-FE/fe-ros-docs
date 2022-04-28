@@ -6,23 +6,26 @@ Welcome to the ROS FE workshop. In this part of the workshop you will learn the 
 
 Why, oh why????
 
+## Node
+
 ## Topics
 
-This is area for topics.
+### Exercise
 
 ## Services
 
-This will be services.
+### Exercise
 
-## msg/srv
+## Custrom messages
 
-This are msgs.
+## Parameters
 
-## launch file
+## Launch files
 
-And this launch files.
+### Exercise
 
-## parameter server
+## ROS network
 
-Sometimes comes handy.
+## Action server
 
+### Exercise
