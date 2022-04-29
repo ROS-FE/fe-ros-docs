@@ -95,6 +95,19 @@ Open script with Visual Studio Code:
 code my_first_node.py
 ```
 
+The minimal working example for node:
+
+```python linenums="1"
+#!/usr/bin/env python
+
+import rospy
+
+if __name__ == '__main__':
+  rospy.init_node('my_first_python_node')
+  rospy.loginfo('This node has been started.')
+  rospy.sleep(1)
+  print('Exit now')
+```
 
 
 
