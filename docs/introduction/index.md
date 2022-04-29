@@ -143,11 +143,18 @@ Topic is:
 
 ### Publisher
 
+Syntax for publisher:
+```python
 pub = rospy.Publisher('topic_name', msg_type, queue_size=10)
+```
 
 ### Subscriber
 
+Syntax for subscriber:
+```python
 sub = rospy.Subscriber('topic_name', msg_type, callback_fcn)
+```
+
 
 ### DEBUG
 
