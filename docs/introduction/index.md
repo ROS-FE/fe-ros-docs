@@ -59,14 +59,44 @@ catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 Create new package `rpi_feros`:
 
 ```
-roscd
-cd ..
-cd src
+cd ~/catkin_ws/src
 catkin_create_pkg rpi_feros rospy std_msgs actionlib_msgs
 catkin_make
 ```
 
 ## Node
+Nodes are processes:
+- used for calculations,
+- that run inside robotic application,
+- grouped into packages,
+- that communicate with each other (topics, servers, actions, parameter servers). 
+
+Why to use nodes:
+- reduce code complexity,
+- the code is more error-resistant,
+- use of different programming languages.
+
+### New node
+
+Nodes are scripts that are located inside `scripts` folder.
+```
+roscd rpi_feros
+mkdir scripts
+cd scripts
+```
+Create new script `my_first_node.py`:
+```
+touch my_first_node.py
+chmod +x my_first_node.py
+```
+
+Open script with Visual Studio Code:
+```
+code my_first_node.py
+```
+
+
+
 
 ## Topics
 
