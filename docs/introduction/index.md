@@ -213,6 +213,10 @@ sub = rospy.Subscriber('topic_name', msg_type, callback_fcn)
 
 ### Exercise
 
+Turn on LED if the object is closer than 0.2 m.
+
+![Turn on LED if the object is closer than 0.2 m](images/topic_2.png "Turn on LED if the object is closer than 0.2 m")
+
 ## Services
 
 ### Exercise
