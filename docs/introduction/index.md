@@ -19,20 +19,29 @@ roscore
 
 ### catkin workspace
 
-CATKIN – official build system for ROS
->> mkdir catkin_ws
->> cd catkin_ws
->> mkdir src
->> catkin_make
+CATKIN is an official build system for ROS
 
-Povezava konzole z ROS spremenljivkami
->> cd devel
->> source setup.bash
+```
+cd
+mkdir catkin_ws
+cd catkin_ws
+mkdir src
+catkin_make
+```
 
-Dodaj v bashrc.sh (avtomatsko, ko se odpre konzola)
->> echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
->> source ~/.bashrc
+Alternative is to use `catkin build` (beforehand you need to remove devel and build folders).
 
+Conect console with ROS variables
+```
+cd devel
+source setup.bash
+```
+
+To do this automatically when the console is opened, add to `bashrc.sh`
+```
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
 
 ###
 
