@@ -6,6 +6,23 @@ Welcome to the ROS FE workshop. In this part of the workshop you will learn the 
 
 Why, oh why????
 
+## ROS setup
+
+### roscore
+- takes care of communicaiton between different ROS functionalities
+- it can be only one at once
+- connects different ROS system into one ROS network
+
+```python
+roscore
+```
+
+### catkin workspace
+
+###
+
+## Packages
+
 ## Node
 
 ## Topics
