@@ -10,11 +10,11 @@
 
 Uporabi Disc Management in formatiraj 16 Gb SD kartico 
 
-Snemi ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz (https://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
+Snemi [ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz](https://cdimage.ubuntu.com/releases/18.04/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
 
 Extrahiraj sliko (7zip) 
 
-Sledi navodilom za namestitev: https://help.ubuntu.com/community/Installation/FromImgFiles 
+Sledi [navodilom za namestitev](https://help.ubuntu.com/community/Installation/FromImgFiles).
 
 Na RaspberryPi priklopi ekran, miško in tipkovnico, se prijavi v ubuntu sistem
 
@@ -24,12 +24,12 @@ password: ubuntu
 ```
 in spremeni geslo.
 
-Sledi navodilom za postavitev mreže in SSH: https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet 
+Sledi [navodilom za postavitev mreže in SSH](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
 
 
 Spremeni geslo: 
 
-```python linenums="1"
+```python
 sudo passwd ubuntu 
 
 ```
@@ -38,7 +38,7 @@ sudo passwd ubuntu
 
 Poveži se preko SSH 
 
-Sledi navodilom, namestiš ROS-Base (ker je Ubuntu server, nima smisla nameščati grafična orodja): http://wiki.ros.org/melodic/Installation/Ubuntu 
+Sledi [navodilom](http://wiki.ros.org/melodic/Installation/Ubuntu), namestiš ROS-Base (ker je Ubuntu server, nima smisla nameščati grafična orodja)
 
 Desni miškin klik je “paste” v cmd. 
 
@@ -62,7 +62,7 @@ source ~/.bashrc
 
 ## Nastavitev statičnega IP 
 
-Vir: https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/ 
+[Vir](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/)
 
 S spodnjim ukazom dobi seznam vseh mrežnih naprav:
 ```
@@ -114,7 +114,8 @@ ssh RPI_uporabnisko_ime@RPI_IP
 
 ## Povezava z VS Code 
 
-Sledi navodilom: https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/ 
+Sledi [navodilom](https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/)
+
 Pozor! Potrebuješ delujočo mrežno povezavo!
 
 
