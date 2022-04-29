@@ -205,7 +205,6 @@ sub = rospy.Subscriber('topic_name', msg_type, callback_fcn)
   * `-r 5`- publish with 5 Hz
 
 
-
 ### Exercise
 
 ## Services
