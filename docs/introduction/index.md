@@ -179,14 +179,20 @@ Topic is:
 - ROS master takes care of the proper publisher/subscriber connection
 - each node can have multiple publishers/subscribers for different topics
 
-### Publisher
+### Example
+
+Turn on LED on button press.
+
+
+
+#### Publisher
 
 Syntax for publisher:
 ```python
 pub = rospy.Publisher('topic_name', msg_type, queue_size=10)
 ```
 
-### Subscriber
+#### Subscriber
 
 Syntax for subscriber:
 ```python
