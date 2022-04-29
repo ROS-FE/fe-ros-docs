@@ -163,8 +163,8 @@ sub = rospy.Subscriber('topic_name', msg_type, callback_fcn)
 - `rostopic echo <topic name>` - listen to selected topic
 - `rostopic info <topic name>` - information about topic
 - `rostopic pub <topic name>` + `Tab` for autocomplete - publish data
-  - `1` - publish only once
-  - `-r 5`- publish with 5 Hz
+  * `-1` - publish only once
+  * `-r 5`- publish with 5 Hz
 
 
 
