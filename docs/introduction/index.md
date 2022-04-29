@@ -183,7 +183,7 @@ Topic is:
 
 Turn on LED on button press.
 
-![Turn on LED on button press](images/topics_2.png "Turn on LED on button press")
+![Turn on LED on button press](images/topics_1.png "Turn on LED on button press")
 
 #### Publisher
 
@@ -191,6 +191,8 @@ Syntax for publisher:
 ```python
 pub = rospy.Publisher('topic_name', msg_type, queue_size=10)
 ```
+
+
 
 #### Subscriber
 
