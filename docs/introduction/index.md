@@ -87,6 +87,10 @@ cd scripts
 Create new script `my_first_node.py`:
 ```
 touch my_first_node.py
+```
+
+Change the access permissions of the file to executable:
+```
 chmod +x my_first_node.py
 ```
 
@@ -112,6 +116,19 @@ Only one node with specific name can be run at a time. If you want to run more i
 ```python linenums="6"
   rospy.init_node('my_first_python_node', anonymous=True)
 ```
+
+To run, write
+```
+python my_first_node.py
+```
+
+### DEBUG
+
+- `rosrun <pkg name> <node name>` - run specific node
+- `rosnode list` - list of all active nodes
+- `rosnode info <node name>` - information about hte node
+- `rosnode kill <node name>` - shut down node
+- `rosnode ping <node name>` - ping node (check, if it is working)
 
 
 ## Topics
