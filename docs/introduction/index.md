@@ -108,7 +108,10 @@ if __name__ == '__main__':
   rospy.sleep(1)
   print('Exit now')
 ```
-
+Only one node with specific name can be run at a time. If you want to run more instances of the same node, change:
+```python linenums="6"
+  rospy.init_node('my_first_python_node', anonymous=True)
+```
 
 
 ## Topics
