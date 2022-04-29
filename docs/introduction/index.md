@@ -133,6 +133,34 @@ python my_first_node.py
 
 ## Topics
 
+Topic is:
+- a communication channel through which nodes exchange messages
+- one-way messaging (publisher> subscriber)
+- anonymous
+- topic has its own message type ([list of standars message types](http://wiki.ros.org/std_msgs))
+- ROS master takes care of the proper publisher/subscriber connection
+- each node can have multiple publishers/subscribers for different topics
+
+### Publisher
+
+pub = rospy.Publisher('topic_name', msg_type, queue_size=10)
+
+### Subscriber
+
+sub = rospy.Subscriber('topic_name', msg_type, callback_fcn)
+
+### DEBUG
+
+- `rostopic -h` - rostopic help
+- `rostopic list` - list of all active topics
+- `rostopic echo <topic name>` - listen to selected topic
+- `rostopic info <topic name>` - information about topic
+- `rostopic pub <topic name>` + `Tab` for autocomplete - publish data
+  - `1` - publish only once
+  - `-r 5`- publish with 5 Hz
+
+
+
 ### Exercise
 
 ## Services
