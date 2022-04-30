@@ -127,10 +127,14 @@ Namestitev:
 
 ```
 sudo apt-get update
-$ sudo apt-get install python-rpi.gpio
-sudo adduser $USER dialout
+sudo apt-get install python-rpi.gpio
 ```
 
-Uporaba:
+Dodaj trenutnega uporabnika v skupino `dialout`:
+```
+sudo adduser $USER dialout
+```
+in ponovno zaženi RPi.
+
 
 
