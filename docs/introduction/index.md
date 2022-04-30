@@ -101,7 +101,7 @@ code my_first_node.py
 
 The minimal working example for node:
 
-```python linenums="1" title="my_first_node.py"
+```python linenums="1"
 #!/usr/bin/env python
 
 import rospy
