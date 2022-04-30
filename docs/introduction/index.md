@@ -101,7 +101,7 @@ code my_first_node.py
 
 The minimal working example for node:
 
-```python linenums="1"
+```python linenums="1" title="my_fist_node.py"
 #!/usr/bin/env python
 
 import rospy
@@ -125,7 +125,7 @@ python my_first_node.py
 
 ### New node - class
 
-```python linenums="1"
+```python linenums="1" title="my_fist_node_class.py"
 #!/usr/bin/env python
 
 import rospy
@@ -357,7 +357,7 @@ if __name__ == '__main__':
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
- ```
+```
  
 To test the code run
 ```
