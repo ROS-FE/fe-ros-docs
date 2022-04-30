@@ -125,7 +125,7 @@ python my_first_node.py
 
 ### New node - class
 
-```python title="my_first_node_class.py" linenums="1"
+```python linenums="1"
 #!/usr/bin/env python
 
 import rospy
