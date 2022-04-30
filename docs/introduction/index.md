@@ -267,6 +267,22 @@ if __name__ == '__main__':
     except rospy.ROSInterruptException:
         pass
  ```
+ 
+To test the code run
+```
+rosrun rpi_feros led_actuator.py
+```
+
+After that check topics (loook for `/button_state`):
+```
+rostopic list
+```
+
+Use `rostopic pub` to turn LED on and off:
+```
+rostopic pub /button_state std_msgs/Bool "data: True"
+rostopic pub /button_state std_msgs/Bool "data: False"
+```
 
 
 ### DEBUG
