@@ -118,4 +118,19 @@ Sledi [navodilom](https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remote
 
 Pozor! Potrebuješ delujočo mrežno povezavo!
 
+## GPIO na RaspberryPi
+
+[rpi.gpio](https://sourceforge.net/projects/raspberry-gpio-python/)
+
+
+Namestitev:
+
+```
+sudo apt-get update
+$ sudo apt-get install python-rpi.gpio
+sudo adduser $USER dialout
+```
+
+Uporaba:
+
 
