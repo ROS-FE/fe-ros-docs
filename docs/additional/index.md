@@ -1,4 +1,4 @@
-# Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4 
+## Navodila za namestitev Ubuntu 18.04 Server + ROS Melodic na RaspberryPi 4 
 
 - Headless uporaba RPI 
 - Povezava preko SSH 
@@ -6,7 +6,7 @@
 
  
 
-## Namestitev Ubuntu 18.04 Server 
+### Namestitev Ubuntu 18.04 Server 
 
 Uporabi Disc Management in formatiraj 16 Gb SD kartico 
 
@@ -34,7 +34,7 @@ sudo passwd ubuntu
 
 ```
 
-## Namestitev ROS 
+### Namestitev ROS 
 
 Poveži se preko SSH 
 
@@ -60,7 +60,7 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc 
 ```
 
-## Nastavitev statičnega IP 
+### Nastavitev statičnega IP 
 
 [Vir](https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/)
 
@@ -104,7 +104,7 @@ ter preveri, če so nastavitve pravilne z
 ifconfig
 ```
 
-## Povezava s SSH 
+### Povezava s SSH 
 
 V Win CMD se povežeš s:  
 ```
@@ -112,13 +112,13 @@ ssh RPI_uporabnisko_ime@RPI_IP
 ```
  
 
-## Povezava z VS Code 
+### Povezava z VS Code 
 
 Sledi [navodilom](https://www.raspberrypi.org/blog/coding-on-raspberry-pi-remotely-with-visual-studio-code/)
 
 Pozor! Potrebuješ delujočo mrežno povezavo!
 
-## GPIO na RaspberryPi
+### GPIO na RaspberryPi
 
 [rpi.gpio](https://sourceforge.net/projects/raspberry-gpio-python/)
 
@@ -135,6 +135,89 @@ Dodaj trenutnega uporabnika v skupino `dialout`:
 sudo adduser $USER dialout
 ```
 in ponovno zaženi RPi.
+
+Uporaba:
+
+```python linenums="1"
+import rospy
+import RPi.GPIO as GPIO
+
+# button GPIO
+    # button 1 - GPIO 11
+    # button 2 - GPIO 12
+
+# LED GPIO
+    # Green 1 - GPIO 2
+    # Green 2 - GPIO 3
+    # Yellow 1 - GPIO 4
+    # Yellow 2 - GPIO 5
+    # Red 1 - GPIO 6
+    # Red 2 - GPIO 7
+
+
+def resetLed():
+     # nastavi in resetiraj vse LED
+    for ii in range(2,8):
+        # nastavi IO kot izhode
+        GPIO.setup(ii,GPIO.OUT)
+        # postavi izhode na nizek nivo
+        GPIO.output(ii,False)
+
+if __name__ == '__main__':
+    # node init
+    rospy.init_node('test_gpio_rpi')
+    # set GPIO as BCM
+    GPIO.setmode(GPIO.BCM)
+    # reset LED
+    resetLed()
+    # set button1 as input
+    GPIO.setup(11, GPIO.IN)
+    # set loop to 10 Hz
+    rate = rospy.Rate(10)
+    
+    while not rospy.is_shutdown():
+        # read GPIO
+        gpio_state = GPIO.input(11)
+        """
+        interrupt definition
+        GPIO.add_event_detect(gpio_num, detected_edge, callback, bouncetime)
+        GPIO.add_event_detect(BUTTON_GPIO, GPIO.RISING, callback=button_callback, bouncetime=500)
+        """
+        GPIO.output(2, False)
+        if gpio_state:
+            GPIO.output(2, True)
+        rate.sleep()
+
+    # clean GPIO settings after stop
+    GPIO.cleanup()
+```
+
+## SICK NanoScan3
+
+Manual - [wiki](http://wiki.ros.org/sick_safetyscanners)
+
+- 1651 measurements
+- angle resolution: 0.002909 rad
+- scan angle: 275°
+
+### Install ROS support
+
+```
+sudo apt-get install ros-melodic-sick-safetyscanners
+```
+
+### Run the driver
+```
+roslaunch sick_safetyscanners sick_safetyscanners.launch sensor_ip:=<sensor ip> host_ip:=<host ip>
+```
+### Published topics
+
+Topic: `/sick_safetyscanners/scan`
+Message: `from sensor_msgs.msg import LaserScan`
+
+
+
+
 
 
 
