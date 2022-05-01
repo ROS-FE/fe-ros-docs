@@ -406,6 +406,27 @@ Turn on LED if the object is closer than 0.2 m.
 ![Turn on LED if the object is closer than 0.2 m](images/topics_2.png "Turn on LED if the object is closer than 0.2 m")
 
 ## Services
+- Server/client system
+- Synchronous operation
+- For calculation and quick actions
+- One message type for Request, another message type for Response
+- A server is only one that can respond to multiple clients
+
+### Example
+
+Turn on LED on button press.
+
+![Turn on LED on button press](images/topics_1.png "Turn on LED on button press")
+
+#### Server
+
+### Client
+
+### DEBUG
+
+- `rosservice list` - list of all active services
+- `rosservice info <service name>` - information about the selected service
+- `rosservice call <service name>` - request to service server from the console
 
 ### Exercise
 
