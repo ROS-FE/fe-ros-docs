@@ -213,7 +213,8 @@ roslaunch sick_safetyscanners sick_safetyscanners.launch sensor_ip:=<sensor ip> 
 ### Published topics
 
 Topic: `/sick_safetyscanners/scan`
-Message: `from sensor_msgs.msg import LaserScan`
+
+Message type: `sensor_msgs/LaserScan`
 
 
 
