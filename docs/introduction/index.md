@@ -414,11 +414,25 @@ Turn on LED if the object is closer than 0.2 m.
 
 ### Example
 
-Turn on LED on button press.
+Turn on LED on button press using interrupts.
 
-![Turn on LED on button press](images/topics_1.png "Turn on LED on button press")
+![Turn on LED on button press](images/service_1.png "Turn on LED on button press")
 
 #### Server
+
+Syntax for service server:
+```python
+service = rospy.Service('/service_name', msg_type, handle_fcn)
+```
+
+Example code:
+
+```python linenums="1" title="led_service_server.py"
+
+```
+
+
+
 
 ### Client
 
@@ -429,6 +443,11 @@ Turn on LED on button press.
 - `rosservice call <service name>` - request to service server from the console
 
 ### Exercise
+
+Use buttons to shift active LED left or right.
+
+![Use buttons to shift active LED left or right.](images/service_2.png "se buttons to shift active LED left or right.")
+
 
 ## Custom messages
 
