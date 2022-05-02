@@ -820,6 +820,7 @@ from rpi_msgs.msg import ledStatus, safetyZone
 ### Exercise
 
 Turn on LEDs regarding to distance $d$ from safety sensor:
+
 - green: $d$ > 0.4 m
 - yellow: 0.4 m > $d$ > 0.2 m
 - red: $d$ < 0.2 m
