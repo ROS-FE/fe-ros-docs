@@ -608,6 +608,62 @@ Use buttons to shift active LED left or right.
 
 ## Custom messages
 
+Topics messages: `.msg`
+
+Service messages: `.srv`
+
+Service message has two parts
+```
+Request msg
+---
+Response msg
+```
+
+Use of `msg` primitives to define custom messages.
+
+MSG:
+- std_msgs
+- sensor_msgs
+- geometry_msgs
+- actionlib_msgs
+- ...
+
+SRV:
+- std_srvs
+- ...
+
+### MSG
+
+Create new package `rpi_msgs`
+```
+catkin_create_pkg rpi_msgs rospy std_msgs
+```
+and build it
+```
+roscd
+cd ..
+catkin_make
+```
+Go to the package and create new folder `msg`:
+```
+roscd rpi_msgs
+mkdir msg
+mkdir srv
+```
+
+Open `package.xml` in `rpi_msgs` package
+```
+code package.xml
+```
+and add the following lines
+```xml
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+```
+
+
+
+
 ### Exercise
 
 ## Parameters
