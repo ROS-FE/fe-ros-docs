@@ -805,7 +805,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 To include new message in python code add
 ```python linenums="3"
-from rpi_msgs.msg import ledStatus
+from rpi_msgs.msg import ledStatus, safetyZone
 ```
 
 
