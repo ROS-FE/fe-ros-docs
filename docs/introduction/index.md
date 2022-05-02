@@ -634,6 +634,15 @@ SRV:
 
 ### MSG
 
+We will create new topic message `ledStatus` composed of
+```
+int64 ledNumber
+string ledStatus
+```
+
+touch ledStatus.msg
+>> code ledStatus.msg
+
 Create new package `rpi_msgs`
 ```
 catkin_create_pkg rpi_msgs rospy std_msgs
@@ -648,8 +657,20 @@ Go to the package and create new folder `msg`:
 ```
 roscd rpi_msgs
 mkdir msg
-mkdir srv
+cd msg
 ```
+
+Create new file `ledStatus.msg`
+```
+touch ledStatus.msg
+code ledStatus.msg
+```
+and copy the following lines:
+```
+int64 ledNumber
+string ledStatus
+```
+
 
 Open `package.xml` in `rpi_msgs` package
 ```
@@ -666,11 +687,36 @@ Open `CMakeLists.txt` in `rpi_msgs` package
 code CMakeLists.txt
 ```
 and add the following lines
-```txt title="CMakeLists.txt"
+```txt title="CMakeLists.txt" hl_lines="4"
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+)
+```
+
+```txt title="CMakeLists.txt" hl_lines="4"
+# Generate messages in the 'msg' folder
+add_message_files(
+  FILES
+  ledStatus.msg
+)
+```
+
+```txt title="CMakeLists.txt" 
+# Generate added messages and services with any dependencies listed here
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+```
+
+```txt title="CMakeLists.txt" hl_lines="4"
+catkin_package(
+  # INCLUDE_DIRS include
+  # LIBRARIES my_robot_msgs
+  CATKIN_DEPENDS rospy std_msgs message_runtime
+  # DEPENDS system_lib
 )
 ```
 
