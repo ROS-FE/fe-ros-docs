@@ -656,10 +656,24 @@ Open `package.xml` in `rpi_msgs` package
 code package.xml
 ```
 and add the following lines
-```xml
+```xml title="package.xml"
 <build_depend>message_generation</build_depend>
 <exec_depend>message_runtime</exec_depend>
 ```
+
+Open `CMakeLists.txt` in `rpi_msgs` package
+```
+code CMakeLists.txt
+```
+and add the following lines
+```txt title="CMakeLists.txt"
+find_package(catkin REQUIRED COMPONENTS
+  rospy
+  std_msgs
+  message_generation
+)
+```
+
 
 
 
