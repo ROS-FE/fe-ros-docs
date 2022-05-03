@@ -92,7 +92,7 @@ network:
          gateway4: 192.168.65.254 
          nameservers: 
             addresses: [192.168.65.14, 193.2.1.66] 
-         version: 2 
+   version: 2 
 ```
 
 Na koncu ponovno zaženi netplan
