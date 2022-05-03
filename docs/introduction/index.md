@@ -9,6 +9,7 @@ Why, oh why????
 ## ROS setup
 
 ### roscore
+
 - takes care of communicaiton between different ROS functionalities
 - it can run only one at once
 - connects different ROS system into one ROS network
