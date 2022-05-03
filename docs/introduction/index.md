@@ -66,12 +66,14 @@ catkin_make
 
 ## Node
 Nodes are processes:
+
 - used for calculations,
 - that run inside robotic application,
 - grouped into packages,
 - that communicate with each other (topics, servers, actions, parameter servers). 
 
 Why to use nodes:
+
 - reduce code complexity,
 - the code is more error-resistant,
 - use of different programming languages.
@@ -173,6 +175,7 @@ if __name__ == '__main__':
 ## Topics
 
 Topic is:
+
 - a communication channel through which nodes exchange messages
 - one-way messaging (publisher> subscriber)
 - anonymous
@@ -414,7 +417,7 @@ Basic sytax is
 ```xml
 <launch>
   <param name="/parameter_name" type="variable_type" value="variable_value"/>
-  <node name="name_of_the_node" pkg="name_of_the_package" type="source_file.py" />
+  <node name="name_of_the_node" pkg="name_of_the_package" type="source_file.py"/>
 </launch>
 ```
 ### New .launch
@@ -457,12 +460,14 @@ roslaunch rpi_feros_bringup feros.launch
 ```
 
 By running this .launch file three things are started
+
 - `roscore` (automatically),
 - `button_publisher.py`, and
 - `led_actuator.py`.
 
 
 ## Services
+
 - Server/client system
 - Synchronous operation
 - For calculation and quick actions
@@ -679,6 +684,7 @@ Response msg
 Use of `msg` primitives to define custom messages.
 
 MSG:
+
 - std_msgs
 - sensor_msgs
 - geometry_msgs
@@ -686,6 +692,7 @@ MSG:
 - ...
 
 SRV:
+
 - std_srvs
 - ...
 
@@ -832,7 +839,7 @@ add_service_files(
 )
 ```
 
-After that do `catkin_make`
+After that do the `catkin_make`
 ```
 roscd
 cd ..
@@ -846,7 +853,7 @@ rossrv list |grep rpi
 
 ### Use of custom MSG and SRV
 
-To use custom messages, you need to do some changes of the `package.html` and the `CMakeLists.txt` of the package where you want to use them (in out care `rpi_feros`)
+To use custom messages, you need to do some changes of the `package.html` and the `CMakeLists.txt` of the package where you want to use them (in our case `rpi_feros`)
 
 ```xml title="package.html" linenums="61"
 <depend>rpi_msgs</depend>
