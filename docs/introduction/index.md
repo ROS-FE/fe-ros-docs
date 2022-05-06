@@ -474,6 +474,7 @@ By running this .launch file three things are started
 - each device must present itself with a name that other devices recognize
 
 [http://wiki.ros.org/ROS/Tutorials/MultipleMachines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
+
 [http://wiki.ros.org/ROS/NetworkSetup](http://wiki.ros.org/ROS/NetworkSetup)
 
 
@@ -1031,6 +1032,23 @@ Create a .launch file
 
 
 
+
 ## Action server
 
+
 ### Exercise
+
+
+
+## ROS Debug tools
+
+### Logging
+5 logging levels:
+
+- DEBUG
+  - INFO
+    - WARN
+      - ERROR
+        - FATAL
+
+![Logging levels](images/8_DEBUG.bmp "Logging levels")
