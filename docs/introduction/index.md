@@ -1004,7 +1004,7 @@ except ROSException:
 ```
 
 Set parameter in a launch file:
-```xml linenums="1"
+```xml
 <param name="/parameter_name" type="parameter_type" value="value"/>
 ```
 
@@ -1016,7 +1016,7 @@ Set parameter in a launch file:
 
 `<rosparam>` is used if you want to load a list of parameters from a .yaml file
 ```xml linenums="1"
-<rosparam command="load" file="$(find rosparam)/example.yaml" />
+<rosparam command="load" file="$(find <package_name>)/example.yaml" />
 ```
 ### DEBUG
 
