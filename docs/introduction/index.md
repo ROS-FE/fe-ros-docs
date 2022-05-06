@@ -984,13 +984,7 @@ Types:
 - String
 - Lists
 - ...
-- 
 
-### DEBUG
-
-- `rosparam set <param name> <value>` - to create new parameter
-- `rosparam get <param name>` - get parameter value
-- `rosparam list` - get list of parameters
 
 ### Example
 
@@ -1020,10 +1014,17 @@ Set parameter in a launch file:
 </launch>
 ```
 
-`<rosparam>` is used if you want to load a list of parameters within a .yaml file
+`<rosparam>` is used if you want to load a list of parameters from a .yaml file
 ```xml linenums="1"
 <rosparam command="load" file="$(find rosparam)/example.yaml" />
 ```
+### DEBUG
+
+- `rosparam set <param name> <value>` - to create new parameter
+- `rosparam get <param name>` - get parameter value
+- `rosparam list` - get list of parameters
+
+
 ### Exercise
 
 Create a .launch file 
