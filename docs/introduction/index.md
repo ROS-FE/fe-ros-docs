@@ -1052,3 +1052,21 @@ Create a .launch file
         - FATAL
 
 ![Logging levels](images/8_DEBUG.bmp "Logging levels")
+
+Code example
+```python linenums="1"
+rospy.init_node('log_demo', log_level=rospy.DEBUG)
+
+while not rospy.is_shutdown():
+  rospy.logdebug("Debug msg")
+  rospy.loginfo("Info msg")
+  rospy.logwarn("Warning msg")
+  rospy.logerr("Error msg" )
+  rospy.logfatal("Fatal msg")
+```
+
+rqt_console
+• rqt_plot
+• rqt_graph
+• rosbag
+• RViz
