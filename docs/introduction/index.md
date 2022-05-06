@@ -567,7 +567,7 @@ rosservice call /set_led_state "data: False"
 ```
 
 
-### Client
+#### Client
 
 Syntax for service proxy (client):
 ```python linenums="1"
@@ -949,15 +949,20 @@ Set parameter in a launch file:
 ```xml linenums="1"
 <rosparam command="load" file="$(find rosparam)/example.yaml" />
 ```
-
-
-
-
-## Launch files
-
 ### Exercise
 
+Create a .launch file 
+
 ## ROS network
+
+- one ROS master in the entire network
+- all nodes must use the same ROS master (`ROS_MASTER_URI`)
+- ull two-way connection between devices
+- each device must present itself with a name that other devices recognize
+
+[http://wiki.ros.org/ROS/Tutorials/MultipleMachines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
+[http://wiki.ros.org/ROS/NetworkSetup](http://wiki.ros.org/ROS/NetworkSetup)
+
 
 ## Action server
 
