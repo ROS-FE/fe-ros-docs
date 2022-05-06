@@ -1,4 +1,4 @@
 # About
 
-This workshop is organized by the Robotics laboratory at the Faculty of Electrical Engineering, University of Ljubljana.
+This workshop is organized by the Laboratory of Robotics at the Faculty of Electrical Engineering, University of Ljubljana.
 
