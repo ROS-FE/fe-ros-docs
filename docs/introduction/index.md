@@ -936,9 +936,7 @@ except ROSException:
 
 Set parameter in a launch file:
 ```xml linenums="1"
-<launch>
-  <param name="/parameter_name" type="parameter_type" value="value"/>
-</launch>
+<param name="/parameter_name" type="parameter_type" value="value"/>
 ```
 
 ```xml linenums="1"
