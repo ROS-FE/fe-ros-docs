@@ -1034,10 +1034,102 @@ Create a .launch file
 
 
 
-## Action server
+## Actions
+
+- `actionlib` library
+- server/client system
+- asynchronous operation
+- used for longer lasting functionalities
+- you can perform other tasks while basic functionality is called
+- action msg is composed of individual messages for Goal, Feedback and Result
+
+How to recognise action?
+
+Use `rostopic list` and look for the following structure:
+```
+as_name/cancel
+as_name/feedback
+as_name/goal
+as_name/result
+as_name/status
+```
+(`as_name` is action server namespace).
+
+
+
+### Action MSG
+
+Action msgs can be defined in package `rpi_msgs`. Create new folder `action` and inside new file `runningLed.action`.
+```
+roscd rpi_msgs
+mkdir action
+cd ./action
+touch runningLed.action
+code runnngLed.action
+```
+Copy the following acton msg definition:
+```txt linenums="1" title="runningLed.action"
+# goal
+int16 numberOfRuns
+---
+# result
+int16 finalRun
+---
+# feedback
+int16 currentRun
+```
+
+In `CMakeLists.txt` of the `rpi_msgs` package change the following lines:
+
+```txt linenums="10" title="CMakeLists.txt" hl_lines="5"
+find_package(catkin REQUIRED COMPONENTS
+  rospy
+  std_msgs
+  message_generation
+  actionlib_msgs
+)
+```
+```txt linenums="62" title="CMakeLists.txt"
+add_action_files(
+  FILES
+  runningLed.action
+)
+```
+
+```txt linenums="69" title="CMakeLists.txt" hl_lines="4"
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+  actionlib_msgs
+)
+```
+
+In `package.xml` of the `rpi_msgs` package add the following line:
+
+```xml linenums="60" title="package.xml"
+<build_depend>actionlib_msgs</build_depend>
+```
+
+Then do `catkin_make` in `catkin_ws` folder.
+
+
+### Example
+
+Turn on sequential LEDs n-times.
+
+![Turn on sequential LEDs n-times.](images/action_1.png "Turn on sequential LEDs n-times.")
+
+#### Action server
+
+
+#### Action client
+
 
 
 ### Exercise
+
+Stop execution of LEDs sequential blinking if the objest is closer that 20 cm.
+
 
 
 
