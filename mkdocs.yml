@@ -12,6 +12,10 @@ site_name: FE ROS
 nav:
     - Home: 'index.md'
     - About: 'about/index.md'
+    - Section:
+      - 'DAY0/index.md'
+      - Page 1: 'DAY0/page-1.md'
+      - Page 2: 'DAY0/page-2.md'
     - Introduction to ROS: 'introduction/index.md'
     - Transformations and trajectory planning: 'tf_moveit/index.md'
     - Visualization & Simulation: 'simulation/index.md'
