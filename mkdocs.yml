@@ -33,6 +33,8 @@ theme:
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
+  features:
+      - toc.integrate
   favicon: assets/logo.png
   # logo: https://raw.githubusercontent.com/ros-infrastructure/artwork/master/orgunits/ros.svg
 
