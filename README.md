@@ -13,9 +13,9 @@ To achieve this we need install the **mkdocs** builder locally. There's a nice g
 
 To sum it up:
 
-1. Install the `mkdocs` with `pip`
+1. Install the `mkdocs` and `mkdocs-material` with `pip`
     ```
-    pip install mkdocs
+    pip install mkdocs mkdocs-material 
     ```
 2. Navigate to the root directory of this repository
     ```
