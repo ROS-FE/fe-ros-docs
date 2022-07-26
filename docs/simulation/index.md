@@ -757,6 +757,197 @@ Now when you run command `roslaunch robot_2dof_moveit_config demo_gazebo.launch`
 ![Moving the robot in Gazebo with MoveIt](images/Screenshot%20from%202022-07-08%2012-38-45.png)
 
 
+### Sensors
+
+We can add various sensors to the robot in `urdf` file. Typically we need to create a link for the sensor and a fixed joint to add the link to the link of the robot. Finally we add `gazebo` and `sensor` tag with appropriate `plugin` and parameters for the sensor.
+
+#### Camera sensor
+
+First we add a link and a joint for the camera sensor in the `urdf` file for the robot.
+
+```xml
+    <!-- Camera -->
+    <link name="camera_link">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05"/>
+            </geometry>
+            <material name="Black"/>
+        </visual>
+
+        <inertial>
+            <mass value="1e-5" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>   
+
+    <joint name="camera_joint" type="fixed">
+        <axis xyz="0 1 0" />
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <parent link="TCP_segment"/>
+        <child link="camera_link"/>
+    </joint>
+
+```
+
+Next we add the plugin and input camera parameters.
+
+
+```xml
+    <!-- camera -->
+    <gazebo reference="camera_link">
+    <material>Gazebo/Black</material>
+        <sensor type="camera" name="camera1">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>1.3962634</horizontal_fov>
+                <image>
+                    <width>800</width>
+                    <height>800</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.02</near>
+                    <far>300</far>
+                </clip>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>robot_2dof/camera1</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                <frameName>camera_link</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo> 
+```
+
+#### Laser sensor
+
+First we add a link and a joint for the laser sensor in the `urdf` file for the robot.
+
+
+```xml
+    <!-- Sick Laser -->
+    <link name="sick_link">
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <!--<mesh filename="package://rrbot_description/meshes/hokuyo.dae"/>-->
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+        </visual>
+
+        <inertial>
+            <mass value="1e-5" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>
+
+    <joint name="sick_joint" type="fixed">
+        <axis xyz="0 1 0" />
+        <origin xyz="0 0.5 0.2" rpy="0 0 0"/>
+        <parent link="world"/>
+        <!--<parent link="TCP_segment"/>-->
+        <child link="sick_link"/>
+    </joint>    
+
+```
+
+Next we add the plugin and input sensor parameters.
+
+
+```xml
+    <!-- sick -->
+    <gazebo reference="sick_link">
+        <sensor type="ray" name="head_sick_sensor">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>40</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>720</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-1.570796</min_angle>
+                        <max_angle>1.570796</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.10</min>
+                    <max>30.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <!-- Noise parameters based on published spec for Hokuyo laser
+                    achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                    stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                    reading. -->
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="gazebo_ros_head_sick_controller" filename="libgazebo_ros_laser.so">
+                <topicName>/robot_2dof/laser/scan</topicName>
+                <frameName>sick_link</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+```
+
+
+
+
+### Franka Panda robot visualization
+
+```
+roslaunch franka_gazebo panda.launch x:=-0.5 \
+    controller:=position_joint_trajectory_controller \
+    rviz:=true
+```
+
+```
+rostopic info /position_joint_trajectory_controller/command
+```
+
+```
+rostopic pub /position_joint_trajectory_controller/command trajectory_msgs/JointTrajectory '{joint_names:["panda_joint1", "panda_joint2", "panda_joint3", "panda_joint4", "panda_joint5", "panda_joint6", "panda_joint7"], points:[{positions:[1.0001325654178492286, -0.7856323608954296, -2.3382642150515665e-05, -2.355961433795475, -8.569228689303543e-06, 1.571747302164006, 0.785388329873661],time_from_start:[1,0]}]}'
+```
+
+```
+sudo apt-get install ros-melodic-moveit-visual-tools
+```
+
 ## Code snapshots
 
 ### Snapshot 1 
