@@ -931,6 +931,7 @@ with
 File `warehouse_2.world` contains description of the warehouse environment.
 
 
+![Warehouse environment](images/Screenshot%20from%202022-07-27%2013-03-15.png)
 
 ### Franka Panda robot visualization
 
