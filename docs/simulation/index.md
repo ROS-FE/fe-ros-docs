@@ -766,15 +766,7 @@ We can add various sensors to the robot in `urdf` file. Typically we need to cre
 First we add a link and a joint for the camera sensor in the `urdf` file for the robot.
 
 ```xml
-    <!-- Camera -->
     <link name="camera_link">
-        <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.05 0.05 0.05"/>
-            </geometry>
-        </collision>
-
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -782,7 +774,6 @@ First we add a link and a joint for the camera sensor in the `urdf` file for the
             </geometry>
             <material name="Black"/>
         </visual>
-
         <inertial>
             <mass value="1e-5" />
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -791,12 +782,10 @@ First we add a link and a joint for the camera sensor in the `urdf` file for the
     </link>   
 
     <joint name="camera_joint" type="fixed">
-        <axis xyz="0 1 0" />
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <origin xyz="0.0 0.0 0.06" rpy="0 0 0"/>
         <parent link="TCP_segment"/>
         <child link="camera_link"/>
     </joint>
-
 ```
 
 Next we add the plugin and input camera parameters.
