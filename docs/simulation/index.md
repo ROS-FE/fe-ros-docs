@@ -914,6 +914,21 @@ Next we add the plugin and input sensor parameters.
     </gazebo>
 ```
 
+### Warehouse environment
+
+We will add the model for warehouse environment. In `gazebo.launch` change the line
+
+```xml
+    <arg name="world_name" default="worlds/empty.world"/>
+```
+
+with
+
+```xml
+    <arg name="world_name" value="$(find robot_2dof_moveit_config)/worlds/warehouse_2.world"/>
+```   
+
+File `warehouse_2.world` contains description of the warehouse environment.
 
 
 
