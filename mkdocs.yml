@@ -20,6 +20,7 @@ nav:
     - Spatial transformations and trajectory planning:
       - 'tf_moveit/index.md'
       - Transformations: 'tf_moveit/tf.md'
+      - Describing frame relations with URDF: 'tf_moveit/urdf.md'
       - Assignment: 'tf_moveit/assignment.md'
     - Visualization & Simulation: 'simulation/index.md'
     - Practical work with robots: 'practical/index.md'

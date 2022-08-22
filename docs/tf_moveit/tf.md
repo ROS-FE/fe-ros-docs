@@ -81,8 +81,8 @@ if __name__ == '__main__':
 #### Intermediate assignment
 
 Write a Python script that publishes three frames: `world`, `frame_1` and `frame_2`. The relations between them should be as follows:
-- `world` to `frame_1` is offset by 1m over the `Z` axis
-- `frame_1` to `frame_2` is offset by 1m over the `X` axis
+- `frame_1` is offset by 1m along the `Z` axis from `world`
+- `frame_2` is offset by 1m along the `X` axis from `frame_1`
 
 Check with `tf_echo` the relation between `world` and `frame_2`. You should see the following output in the command line:
 ```
@@ -140,8 +140,7 @@ if __name__ == '__main__':
 
 As you see, we no longer require the `rospy.spin()`. That is because we use a `while` loop that does not exit except if we interrupt the execution of the Python script.
 
-Let's inspect the TF topics. As you expect, the `/tf_static` is not publish anything. On the other hand, the `/tf` is publishing a lot of messages.
-
+Let's inspect the TF topics. As you expect, the `/tf_static` is not publish anything. On the other hand, the `/tf` is publishing a lot of messages:
 ```
 $ rostopic hz /tf
 subscribed to [/tf]
@@ -149,4 +148,10 @@ average rate: 95.603
         min: 0.009s max: 0.011s std dev: 0.00031s window: 9
 ```
 Approximately 100 Hz.
+
+#### Intermediate assignment
+
+Write a Python script that publishes three frames: `world`, `frame_1` and `frame_2`. The relations between them should be as follows:
+- `frame_1` is offset by 1m along the `Z` axis from `world`
+- `frame_2` is offset by `sin(t)` along the `X` and `cos(t)` along the `Z` axis from `frame_1`
 
