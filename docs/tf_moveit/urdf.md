@@ -102,7 +102,11 @@ At time 1661195066.017
             in RPY (degree) [0.000, -0.000, 0.000]
 ```
 
-Tadaaah!
+Tadaaah! Before we move on, observe the content of the `/joint_states` topic:
+```
+$ rostopic echo -n1 /joint_states
+```
+> **Note**: The `-n1` flag of `rostopic echo` tells it to print only the first received message and then exit.
 
 We can now modify the value of the joint by terminating `joint_state_publisher` and run `joint_state_publisher_gui` instead:
 rosrun joint_state_publisher_gui joint_state_publisher_gui
@@ -137,4 +141,78 @@ If you did everything correctly, you should now be able to see the three coordin
 
 ![Three frames in Rviz](images/two_frames_rviz.png)
 
+Try moving the slider from before (i.e. `joint_state_publisher_gui`) and observe how the frames react.
+
+## Assignment
+
+In this assignment you will be creating two different Python scripts that will be used also during the practical assignment. It's in your interest to write them as good as possible so they help you later on.
+
+### First assignment - store TF data
+Write a Python that stores the transformation between one frame and the other into a YAML file.
+
+For this assignment we prepared the following code snippet that you should complete:
+```python
+#! /usr/bin/env python
+
+import rospy
+import pickle
+import os
+import tf2_ros
+
+if __name__ == '__main__':
+
+    rospy.init_node('tf_saver')
+    rospy.loginfo("TF saver started!")
+
+    tf_buffer = tf2_ros.Buffer()
+    tf_listener = tf2_ros.TransformListener(tf_buffer)
+
+    rospy.sleep(1)
+    stored_data = {}
+
+    ##### FILL IN THE APPROPRIATE FILENAME. HINT: USE `raw_input()`
+    file_name = ""
+    outfile = open(file_name,'wb')
+    saved_data = {}
+    #########################
+    ##### STUDENT WRITES ####
+    #########################
+
+
+    #########################
+
+    pickle.dump(saved_data, outfile)
+    outfile.close()
+```
+### Second assignment - load data to TF
+Write a Python scrip that will read the YAML file produced by the saver script and publish the transforms onto TF.
+
+For this assignment we prepared the following code snippet that you should complete:
+
+```python
+#! /usr/bin/env python
+
+import rospy
+import pickle
+
+if __name__ == '__main__':
+
+    # Init the node
+    rospy.init_node('tf_loader')
+
+    ##### FILL IN THE APPROPRIATE FILENAME. HINT: USE `raw_input()`
+    file_name = ""
+
+    infile = open(file_name,'rb')
+    stored_poses = pickle.load(infile)
+    infile.close()
+
+    #########################
+    ##### STUDENT WRITES ####
+    #########################
+
+
+    #########################
+    rospy.spin()
+```
 <!-- To-do: load a proper robot's URDF and check the robot in RVIZ. Yes?-->
