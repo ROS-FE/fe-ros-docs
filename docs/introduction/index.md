@@ -187,6 +187,29 @@ if __name__ == '__main__':
 - `rosnode kill <node name>` - shut down node
 - `rosnode ping <node name>` - ping node (check, if it is working)
 
+## Examples for Raspberry Pi
+
+Download examples on RaspberryPi.
+
+Go to `src` directory:
+```bash
+roscd
+cd ..
+cd src
+```
+
+Clone from GitHub:
+```bash
+git clone https://github.com/ROS-FE/rpi_ros_examples.git .
+```
+
+Build the packages:
+```bash
+roscd
+cd ..
+catkin_make
+```
+
 
 ## Topics
 
