@@ -271,11 +271,6 @@ code my_file.py
 ```
 
 
-![image](https://user-images.githubusercontent.com/89980915/191905528-06a6d356-643d-4eb8-a39a-3d4fdca773c6.png)
-
-```
-
-
 
 
 
