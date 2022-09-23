@@ -71,11 +71,12 @@ Basic syntax:
 catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 ```
 
-Create new package `rpi_feros`:
+Create new package `rpi_test`:
 
 ```
 cd ~/catkin_ws/src
-catkin_create_pkg rpi_feros rospy std_msgs actionlib_msgs
+catkin_create_pkg rpi_test rospy std_msgs
+cd ..
 catkin_make
 ```
 
@@ -97,7 +98,7 @@ Why to use nodes:
 
 Nodes are scripts that are located inside `scripts` folder.
 ```
-roscd rpi_feros
+roscd rpi_test
 mkdir scripts
 cd scripts
 ```
