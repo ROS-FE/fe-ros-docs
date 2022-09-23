@@ -216,6 +216,35 @@ Topic: `/sick_safetyscanners/scan`
 
 Message type: `sensor_msgs/LaserScan`
 
+## Linux
+
+Uporabni ukazi v Linux okolju
+
+Dostop to root direktorija:
+```bash
+cd /
+```
+Premik v prejšnjo mapo:
+```
+cd ..
+```
+Trenutna pot:
+```
+pwd
+```
+
+/home/user ALI  ~
+ls
+mkdir my_folder
+rmdir my_folder
+rm -rf my_folder
+chmod +x my_folder
+touch my_file.py
+code my_file.py
+![image](https://user-images.githubusercontent.com/89980915/191905528-06a6d356-643d-4eb8-a39a-3d4fdca773c6.png)
+
+```
+
 
 
 
