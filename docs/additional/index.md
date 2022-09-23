@@ -216,7 +216,7 @@ Topic: `/sick_safetyscanners/scan`
 
 Message type: `sensor_msgs/LaserScan`
 
-## Linux
+## Linux ukazi
 
 Uporabni ukazi v Linux okolju
 
