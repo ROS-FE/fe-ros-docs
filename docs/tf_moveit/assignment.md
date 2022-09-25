@@ -12,11 +12,9 @@ Example of YAML file obtained with this:
 ### Second part of the assignment
 Using the YAML that you created in the first part of the assignment you will publish the message that were stored as `TransformStamped` onto TF.
 
-Next, you will move the simulated robot into these configurations, joint and Cartesian space.
-
-Example code that moves the robot into a joint space configuration that you previously called `home`:
+Next, you will move the simulated robot into these configurations, joint and Cartesian space. You will define new methods to help you convert frames stored as TF into poses that the MoveIt Python API can accept. For instance:
 ```python
 ...
-move_group.go(saved_configurations['home'])
+move_group.go(transformstamped_to_pose(saved_configurations['home']))
 ...
 ```
