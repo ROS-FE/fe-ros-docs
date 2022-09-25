@@ -269,6 +269,10 @@ Odpri datoteko `my_file.py` v Visual Studio Code:
 ```
 code my_file.py
 ```
+Odpri datoteko `my_file.py` v konzolnem urejevalniku besedila `nano`:
+```
+nano my_file.py
+```
 
 
 
