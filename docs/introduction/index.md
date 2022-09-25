@@ -71,11 +71,12 @@ Basic syntax:
 catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 ```
 
-Create new package `rpi_feros`:
+Create new package `rpi_test`:
 
 ```
 cd ~/catkin_ws/src
-catkin_create_pkg rpi_feros rospy std_msgs actionlib_msgs
+catkin_create_pkg rpi_test rospy std_msgs
+cd ..
 catkin_make
 ```
 
@@ -97,7 +98,7 @@ Why to use nodes:
 
 Nodes are scripts that are located inside `scripts` folder.
 ```
-roscd rpi_feros
+roscd rpi_test
 mkdir scripts
 cd scripts
 ```
@@ -185,6 +186,29 @@ if __name__ == '__main__':
 - `rosnode info <node name>` - information about hte node
 - `rosnode kill <node name>` - shut down node
 - `rosnode ping <node name>` - ping node (check, if it is working)
+
+## Examples for Raspberry Pi
+
+Download examples on RaspberryPi.
+
+Go to `src` directory:
+```bash
+roscd
+cd ..
+cd src
+```
+
+Clone from GitHub:
+```bash
+git clone https://github.com/ROS-FE/rpi_ros_examples.git .
+```
+
+Build the packages:
+```bash
+roscd
+cd ..
+catkin_make
+```
 
 
 ## Topics
@@ -424,7 +448,7 @@ Turn on LED if the object is closer than 0.2 m.
 ![Turn on LED if the object is closer than 0.2 m](images/topics_2.png "Turn on LED if the object is closer than 0.2 m")
 
 
-## roslaunch
+## Roslaunch
 
 Roslaunch is a tool for easily launching multiple ROS nodes as well as setting parameters. Roslaunch takes in one or more XML configuration files (with the .launch extension) that specify the parameters to set and nodes to launch, as well as the machines that they should be run on.
 
@@ -455,12 +479,12 @@ cd launch
 
 Inside the folder create new file `feros.launch`
 ```
-touch feros.launch
-code feros.launch
+touch rpi_led.launch
+code rpi_led.launch
 ```
 
 Copy the following lines
-```xml linenums="1" title="feros.launch"
+```xml linenums="1" title="rpi_led.launch"
 <?xml version="1.0"?>
 
 <launch>
@@ -469,9 +493,9 @@ Copy the following lines
 </launch>
 ```
 
-To run the `feros.launch` use `roslaunch` function
+To run the `rpi_led.launch` use `roslaunch` function
 ```
-roslaunch rpi_feros_bringup feros.launch
+roslaunch rpi_feros_bringup rpi_led.launch
 ```
 
 By running this .launch file three things are started
@@ -484,7 +508,7 @@ By running this .launch file three things are started
 
 - one ROS master in the entire network
 - all nodes must use the same ROS master (`ROS_MASTER_URI`)
-- ull two-way connection between devices
+- two-way connection between devices
 - each device must present itself with a name that other devices recognize
 
 [http://wiki.ros.org/ROS/Tutorials/MultipleMachines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
@@ -993,7 +1017,7 @@ Turn on LEDs regarding to distance $d$ from safety sensor:
 
 How to recognise action?
 
-Use `rostopic list` and look for the following structure:
+Use `rostopic list` and look for the following structure (`as` stands for `action server`):
 ```
 as_name/cancel
 as_name/feedback
