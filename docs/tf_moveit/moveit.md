@@ -7,7 +7,7 @@ In this section we will learn how to plan and execute robot trajectories using M
 From their [Github repository](https://github.com/ros-planning/moveit):
 > Easy-to-use open source robotics manipulation platform for developing commercial applications, prototyping designs, and benchmarking algorithms.
 
-The best way to show why MoveIt is cool and how you can use it is by providing a demo. We've prepared a simple launch file that starts Rviz (you will learn about this later) with the MoveIt plug in:
+The best way to show why MoveIt is cool and how you can use it is by providing a demo. We've prepared a simple launch file that starts Rviz (you will learn about this later) with the MoveIt plug in. You will first need to download and installed the `fe_urko` package available on Github: [https://github.com/ROS-FE/fe_urko](https://github.com/ROS-FE/fe_urko). After installing it and sourcing the workspace, you can run the following launchfile:
 ```
 $ roslaunch fe_ur urko_moveit_demo.launch
 ```
