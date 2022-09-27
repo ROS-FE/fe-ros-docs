@@ -660,7 +660,6 @@ We will use MoveIt Setup Assistant to create MoveIt configuration for our 2DOF r
 [//]: # (Comment)```
 -->
 
-
 In terminal run command `roslaunch moveit_setup_assistant setup_assistant.launch`. 
 
 1. In *Start* tab select *Create New MoveIt Configuration Package* and browse for `robot2dof.urdf` file. Load the file.
@@ -971,6 +970,8 @@ File `warehouse_2.world` contains description of the warehouse environment.
 
 ![Warehouse environment gazebo](images/Screenshot%20from%202022-07-27%2013-18-13.png)
 
+
+<!--
 ### Franka Panda robot visualization
 
 ```
@@ -990,6 +991,7 @@ rostopic pub /position_joint_trajectory_controller/command trajectory_msgs/Joint
 ```
 sudo apt-get install ros-melodic-moveit-visual-tools
 ```
+-->
 
 ## Code snapshots
 
