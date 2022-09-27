@@ -252,10 +252,7 @@ Now if we change the values using slider on the GUI we can follow the values of 
 
 We will now visualize more complex model of the robot, such as Franka Panda robot.
 
-Copy file `panda.zip` ![panda.zip](panda.zip)
-
-
- into folder `urdf` and unzip it. 
+Copy file `panda.zip` [panda.zip](./panda.zip) aswdasdA into folder `urdf` and unzip it. 
 
 Run command 
 
