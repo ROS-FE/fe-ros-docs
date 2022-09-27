@@ -4,7 +4,21 @@ Welcome to the ROS FE workshop. In this part of the workshop you will learn the 
 
 ## Why ROS?
 
-Why, oh why????
+ROS is an open-source, meta-operating system for your robot. It provides the services you would expect from an operating system, including hardware abstraction, low-level device control, implementation of commonly-used functionality, message-passing between processes, and package management. It also provides tools and libraries for obtaining, building, writing, and running code across multiple computers. 
+
+ROS has three levels of concepts: the Filesystem level, the Computation Graph level, and the Community level.
+
+#### ROS Filesystem Level
+
+The basic unit for software code organization in ROS is a package. It can contain code for processes, liberaries, datasets, configuration files and custom communication types definitions. Packages can be sensibly grouped into metapackages. Each package contains a package manifest (package.xml) that provides the metadata about the package.
+
+#### ROS Computation Graph Level
+
+In ROS, processes run as nodes in a peer-to-peer network processing data together. This network is called ROS Computation Graph and it is supported by the name registration and lookup services of the ROS Master, by the parameter storing and serving services of the Parameter Server, and by the ROS logging mechanism. ROS nodes communicate by excanging data using messages in communication models called topics, services and actions.
+
+#### ROS Community Level
+
+There is a large number of ROS developers and robotic systems developers using ROS worldwide. Separate communities can exchange software and knowledge using ROS distributions, code repositories, the ROS Wiki and ROS Answers forums, blog and mailing lists. To get the participants of this course acquainted with the availabe resources, reading through some of the ROS Wiki topics will be encouraged by providing links to the ROS Wiki contents.
 
 ## ROS setup
 
@@ -57,11 +71,12 @@ Basic syntax:
 catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 ```
 
-Create new package `rpi_feros`:
+Create new package `rpi_test`:
 
 ```
 cd ~/catkin_ws/src
-catkin_create_pkg rpi_feros rospy std_msgs actionlib_msgs
+catkin_create_pkg rpi_test rospy std_msgs
+cd ..
 catkin_make
 ```
 
@@ -83,7 +98,7 @@ Why to use nodes:
 
 Nodes are scripts that are located inside `scripts` folder.
 ```
-roscd rpi_feros
+roscd rpi_test
 mkdir scripts
 cd scripts
 ```
@@ -171,6 +186,29 @@ if __name__ == '__main__':
 - `rosnode info <node name>` - information about hte node
 - `rosnode kill <node name>` - shut down node
 - `rosnode ping <node name>` - ping node (check, if it is working)
+
+## Examples for Raspberry Pi
+
+Download examples on RaspberryPi.
+
+Go to `src` directory:
+```bash
+roscd
+cd ..
+cd src
+```
+
+Clone from GitHub:
+```bash
+git clone https://github.com/ROS-FE/rpi_ros_examples.git .
+```
+
+Build the packages:
+```bash
+roscd
+cd ..
+catkin_make
+```
 
 
 ## Topics
@@ -410,7 +448,7 @@ Turn on LED if the object is closer than 0.2 m.
 ![Turn on LED if the object is closer than 0.2 m](images/topics_2.png "Turn on LED if the object is closer than 0.2 m")
 
 
-## roslaunch
+## Roslaunch
 
 Roslaunch is a tool for easily launching multiple ROS nodes as well as setting parameters. Roslaunch takes in one or more XML configuration files (with the .launch extension) that specify the parameters to set and nodes to launch, as well as the machines that they should be run on.
 
@@ -441,12 +479,12 @@ cd launch
 
 Inside the folder create new file `feros.launch`
 ```
-touch feros.launch
-code feros.launch
+touch rpi_led.launch
+code rpi_led.launch
 ```
 
 Copy the following lines
-```xml linenums="1" title="feros.launch"
+```xml linenums="1" title="rpi_led.launch"
 <?xml version="1.0"?>
 
 <launch>
@@ -455,9 +493,9 @@ Copy the following lines
 </launch>
 ```
 
-To run the `feros.launch` use `roslaunch` function
+To run the `rpi_led.launch` use `roslaunch` function
 ```
-roslaunch rpi_feros_bringup feros.launch
+roslaunch rpi_feros_bringup rpi_led.launch
 ```
 
 By running this .launch file three things are started
@@ -470,7 +508,7 @@ By running this .launch file three things are started
 
 - one ROS master in the entire network
 - all nodes must use the same ROS master (`ROS_MASTER_URI`)
-- ull two-way connection between devices
+- two-way connection between devices
 - each device must present itself with a name that other devices recognize
 
 [http://wiki.ros.org/ROS/Tutorials/MultipleMachines](http://wiki.ros.org/ROS/Tutorials/MultipleMachines)
@@ -979,7 +1017,7 @@ Turn on LEDs regarding to distance $d$ from safety sensor:
 
 How to recognise action?
 
-Use `rostopic list` and look for the following structure:
+Use `rostopic list` and look for the following structure (`as` stands for `action server`):
 ```
 as_name/cancel
 as_name/feedback

@@ -12,24 +12,25 @@ site_name: FE ROS
 nav:
     - Home: 'index.md'
     - About: 'about/index.md'
-    - Section:
-      - 'DAY0/index.md'
-      - Page 1: 'DAY0/page-1.md'
-      - Page 2: 'DAY0/page-2.md'
     - Introduction to ROS: 'introduction/index.md'
-    - Transformations and trajectory planning: 'tf_moveit/index.md'
+    - Spatial transformations and trajectory planning:
+      - 'tf_moveit/index.md'
+      - Transformations: 'tf_moveit/tf.md'
+      - Describing frame relations with URDF: 'tf_moveit/urdf.md'
+      - Planning trajectories with MoveIt: 'tf_moveit/moveit.md'
+      - Assignment: 'tf_moveit/assignment.md'
     - Visualization & Simulation: 'simulation/index.md'
     - Practical work with robots: 'practical/index.md'
     - Sponsors: 'sponsors/index.md'
     - Additional knowledge: 'additional/index.md'
 theme:
   name: material
-  palette: 
+  palette:
     - scheme: default
       toggle:
-        icon: material/lightbulb-outline 
+        icon: material/lightbulb-outline
         name: Switch to dark mode
-    - scheme: slate 
+    - scheme: slate
       toggle:
         icon: material/lightbulb
         name: Switch to light mode
