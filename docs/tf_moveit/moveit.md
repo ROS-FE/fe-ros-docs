@@ -116,7 +116,7 @@ If all goes well, you should see the virtual robot move. Yay!
 
 #### First assignment
 
-Write a program in Python that will guide the robot from the previously defined home position (i.e. `[0.0, -pi/2, -pi/2, 0.0, 0.0, 0.0]) to two different joint space configurations, one after another, using MoveIt Python API.
+Write a program in Python that will guide the robot from the previously defined home position (i.e. `[0.0, -pi/2, -pi/2, 0.0, 0.0, 0.0]`) to two different joint space configurations, one after another, using MoveIt Python API.
 
 After this is working, try modifying the speed of the motion with the `set_max_velocity_scaling_factor()` method. The method takes a value between 0 and 1 (0% and 100%). Similarly, you can play around with `set_max_acceleration_scaling_factor()` to modify the maximum allowed accelerations.
 
