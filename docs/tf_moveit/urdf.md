@@ -211,6 +211,11 @@ if __name__ == '__main__':
     ##### STUDENT WRITES ####
     #########################
 
+    # Hint - Use the tf_buffer.lookup_transform() method to retrieve the transform.
+    # Example:
+    # transformation = tf_buffer.lookup_transform(from_frame, to_frame, rospy.Time(0))
+    # Note - from_frame and to_frame need to be defined!
+
 
     #########################
     rospy.spin()
