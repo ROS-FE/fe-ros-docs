@@ -1378,3 +1378,6 @@ controller_list:
 
 
 https://github.com/wh200720041/warehouse_simulation_toolkit
+
+
+[robot_2dof_moveit_config.zip](./robot_2dof_moveit_config.zip)
