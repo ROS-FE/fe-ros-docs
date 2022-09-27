@@ -41,6 +41,6 @@ def get_pose_from_tf(target, tf_buffer, relative_to='base_link'):
     """
 
     rospy.sleep(0.1)
-    target_transform = tf_buffer.lookup_transform(target, relative_to, rospy.Time(0))
+    target_transform = tf_buffer.lookup_transform(relative_to, target, rospy.Time(0))
     return transformstamped_to_pose(target_transform)
 ```
