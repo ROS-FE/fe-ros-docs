@@ -9,7 +9,7 @@ Using the joint state publisher and a simulated robot save various joint and Car
 ### Second part of the assignment
 Using the Pickle file that you created in the first part of the assignment you will publish the message that were stored as `TransformStamped` onto TF. You will do so using the script that you write in the previous assignments.
 
-Next, you will move the simulated robot into these configurations, joint and Cartesian space. Help yourselves with the convenient methods: `transformstamped_to_pose` and `get_pose_from_tf`. You will find the code snippets below.
+Next, you will move the simulated robot into these configurations. Help yourselves with the convenient methods: `transformstamped_to_pose` and `get_pose_from_tf`. You will find the code snippets below.
 
 #### `transformstamped_to_pose`
 ```python
