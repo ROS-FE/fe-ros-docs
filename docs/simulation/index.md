@@ -648,7 +648,7 @@ The full files content of the files until this point is [linked](#snapshot-1) be
 The aim of this section is to use MoveIt package to send the commands to the Gazebo simulation of the robot. Full documentation for MoveIt is http://docs.ros.org/en/melodic/api/moveit_tutorials/html/index.html.
 We will use MoveIt Setup Assistant to create MoveIt configuration for our 2DOF robot. We will closely follow the [tutorial](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) published on MoveIt page. Here we will give really short overview.
 
-
+<!---
 [//]: # (Comment)```
 [//]: # (Comment)sudo apt-get install ros-melodic-moveit
 [//]: # (Comment)sudo apt-get install ros-melodic-moveit-setup-assistant
@@ -658,6 +658,7 @@ We will use MoveIt Setup Assistant to create MoveIt configuration for our 2DOF r
 [//]: # (Comment)cd ..
 [//]: # (Comment)catkin_make
 [//]: # (Comment)```
+-->
 
 
 In terminal run command `roslaunch moveit_setup_assistant setup_assistant.launch`. 
