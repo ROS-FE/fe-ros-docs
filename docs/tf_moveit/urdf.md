@@ -148,7 +148,7 @@ Try moving the slider from before (i.e. `joint_state_publisher_gui`) and observe
 In this assignment you will be creating two different Python scripts that will be used also during the practical assignment. It's in your interest to write them as good as possible so they help you later on.
 
 ### First assignment - store TF data
-Write a Python that stores the transformation between one frame (e.g. `world`) and another (e.g. `frame_2`) into a YAML file.
+Write a Python that stores the transformation between one frame (e.g. `world`) and another (e.g. `frame_2`) into a Pickle file (make up an extension, for example `.dat`).
 
 For this assignment we prepared the following code snippet that you should complete:
 ```python
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     outfile.close()
 ```
 ### Second assignment - load data to TF
-Write a Python scrip that will read the YAML file produced by the saver script and publish the transforms onto TF. We don't expect these frames to change in the future. You can therefore use the `StaticTransformBroadcaster()` class to publish them.
+Write a Python scrip that will read the Pickle file produced by the saver script and publish the transforms onto TF. We don't expect these frames to change in the future. You can therefore use the `StaticTransformBroadcaster()` class to publish them.
 
 For this assignment we prepared the following code snippet that you should complete:
 
