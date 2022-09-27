@@ -252,12 +252,15 @@ Now if we change the values using slider on the GUI we can follow the values of 
 
 We will now visualize more complex model of the robot, such as Franka Panda robot.
 
-Copy file `panda.zip` into folder `urdf` and unzip it. 
+Copy file `panda.zip` ![panda.zip](panda.zip)
+
+
+ into folder `urdf` and unzip it. 
 
 Run command 
 
 ```
-roslaunch urdf_tutorial display.launch model:='$(find robot_2dof)/urdf/panda.urdf'
+roslaunch urdf_tutorial display.launch model:='$(find robot_2dof)/urdf/panda/panda.urdf'
 ```
 
 In rviz you need to change *Fixed Frame* (in *Global Options*) to *panda_link0*.
@@ -1340,3 +1343,6 @@ controller_list:
 </launch>
 
 ```
+
+
+https://github.com/wh200720041/warehouse_simulation_toolkit
