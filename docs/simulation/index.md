@@ -264,7 +264,12 @@ In rviz you need to change *Fixed Frame* (in *Global Options*) to *panda_link0*.
 
 ### Importing 2 DOF robot in gazebo
 
-First, we will create launch file to load urdf file into gazebo.
+First, we will create launch file to load urdf file into gazebo. Go to `launch` folder:
+
+```
+touch zagon_gazebo.launch
+code zagon_gazebo.launch
+```
 
 ```xml
 <?xml version="1.0"?>
@@ -643,7 +648,19 @@ The full files content of the files until this point is [linked](#snapshot-1) be
 The aim of this section is to use MoveIt package to send the commands to the Gazebo simulation of the robot. Full documentation for MoveIt is http://docs.ros.org/en/melodic/api/moveit_tutorials/html/index.html.
 We will use MoveIt Setup Assistant to create MoveIt configuration for our 2DOF robot. We will closely follow the [tutorial](http://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/setup_assistant/setup_assistant_tutorial.html) published on MoveIt page. Here we will give really short overview.
 
-In terminal run command roslaunch `moveit_setup_assistant setup_assistant.launch`. 
+
+[//]: # (Comment)```
+[//]: # (Comment)sudo apt-get install ros-melodic-moveit
+[//]: # (Comment)sudo apt-get install ros-melodic-moveit-setup-assistant
+[//]: # (Comment)cd src/
+[//]: # (Comment)git clone -b melodic-devel https://github.com/ros-planning/moveit_tutorials.git
+[//]: # (Comment)rosdep install -y --from-paths . --ignore-src --rosdistro melodic
+[//]: # (Comment)cd ..
+[//]: # (Comment)catkin_make
+[//]: # (Comment)```
+
+
+In terminal run command `roslaunch moveit_setup_assistant setup_assistant.launch`. 
 
 1. In *Start* tab select *Create New MoveIt Configuration Package* and browse for `robot2dof.urdf` file. Load the file.
   ![MoveIt Setup Assistant](images/Screenshot%20from%202022-07-08%2010-54-30.png) 
@@ -667,7 +684,7 @@ In terminal run command roslaunch `moveit_setup_assistant setup_assistant.launch
     ![*End Effectors* tab](images/Screenshot%20from%202022-07-08%2011-13-03.png)
     ![*End Effectors* tab](images/Screenshot%20from%202022-07-08%2011-15-27.png)
 
-5. *ROS Control* tab. Click on *Add Controller*. Add **MOJROBOT/arm_controller* for *Controller Name* and choose *controller type*. See figure bellow. Click *Save*.
+5. *ROS Control* tab. Click on *Add Controller*. Add **MOJROBOT/arm_controller* for *Controller Name* and choose *controller type*. See figure bellow. Click *Save* . You might get error *Invalid ROS controller name*. If you get the error close the error dialog. Click the button *Auto Add FollowJointsTrajectory Controllers For Each Planning Group*. We will add the correct controller manually later. 
     ![*Add Controller*](images/Screenshot%20from%202022-07-08%2011-19-01.png)
     ![*Add Controller*](images/Screenshot%20from%202022-07-08%2011-21-58.png) 
 
@@ -916,7 +933,12 @@ Next we add the plugin and input sensor parameters.
 
 ### Warehouse environment
 
-We will add the model for warehouse environment. In `gazebo.launch` change the line
+We will add the model for warehouse environment. 
+
+
+Copy file [warehouse.zip](./warehouse.zip) into folder `robot_2dof_moveit_config` and unzip it. You must unzip it directly into folder `robot_2dof_moveit_config` so that the folder contains new folders `worlds`, `meshes` and `models`.
+
+In `gazebo.launch` change the line
 
 ```xml
     <arg name="world_name" default="worlds/empty.world"/>
@@ -927,6 +949,19 @@ with
 ```xml
     <arg name="world_name" value="$(find robot_2dof_moveit_config)/worlds/warehouse_2.world"/>
 ```   
+
+Before the line
+```xml
+  <!-- startup simulated world -->
+``` 
+
+Add the following lines
+
+```xml
+  <!-- warehouse simulation environment -->
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find robot_2dof_moveit_config)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find robot_2dof_moveit_config)/models"/> 
+```
 
 File `warehouse_2.world` contains description of the warehouse environment.
 
