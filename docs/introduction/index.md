@@ -456,7 +456,10 @@ Basic sytax is
 ```xml
 <launch>
   <param name="/parameter_name" type="variable_type" value="variable_value"/>
-  <node name="name_of_the_node" pkg="name_of_the_package" type="source_file.py"/>
+  <node name="name_of_the_node" pkg="name_of_the_package" type="source_file.py" ns="namespace" args="optional arguments"/>
+  <include file="included.launch">
+    <arg name="arg_name" value="arg_val" />
+  </include>
 </launch>
 ```
 ### New .launch
