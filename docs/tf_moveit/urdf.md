@@ -20,7 +20,7 @@ Let's take the following URDF and examine what we see:
 
 In the above URDF we are defining two links: `world` and `frame_1` (the `<link>` tag). We then define a `<joint>` tag that describes their relation: `frame_1` is offset from `world` by 1m along the `Z` axis.
 
-With Python scripts it was easy -- we ran the script and we were able to observe this relations. Working with URDFs requires some extra steps.
+With Python scripts it was easy -- we ran the script and we were able to observe these relations. Working with URDFs requires some extra steps.
 
 Copy the content of the code snippet above and store it into a file called `two_frames.urdf`. Then, load this file onto the parameter server as `/robot_description`:
 ```
@@ -85,9 +85,9 @@ Frame frame_1 exists with parent world.
 ```
 What's going on?
 
-As we explained before, if we use a joint of a type different than `static`, we need another piece of information. That is, the value depending on the joint type. In our case we are dealing with `revolute` so we will need the angles for which the frame is turned around the joint.
+As we explained before, if we use a joint of a type different than `static`, we need another piece of information. That is, the value of the joint motion status depending on the joint type. In our case we are dealing with `revolute` so we will need the angles for which the frame is turned around the joint.
 
-There is a available in ROS to help us with that. It's called the `joint_state_publisher`. This program will read the contents of the `/robot_description` parameter and publish "some" joint values. Let's try it out to see how it works. Open a new terminal and run the following command
+There is a handy tool available in ROS to help us with that. It's called the `joint_state_publisher`. This program will read the contents of the `/robot_description` parameter and publish "some" joint values. Let's try it out to see how it works. Open a new terminal and run the following command
 ```
 rosrun joint_state_publisher joint_state_publisher
 ```
@@ -148,7 +148,7 @@ Try moving the slider from before (i.e. `joint_state_publisher_gui`) and observe
 In this assignment you will be creating two different Python scripts that will be used also during the practical assignment. It's in your interest to write them as good as possible so they help you later on.
 
 ### First assignment - store TF data
-Write a Python that stores the transformation between one frame (e.g. `world`) and another (e.g. `frame_2`) into a Pickle file (make up an extension, for example `.dat`).
+Write a Python script that stores the transformation between one frame (e.g. `world`) and another (e.g. `frame_2`) into a Pickle file (make up an extension, for example `.dat`).
 
 For this assignment we prepared the following code snippet that you should complete:
 ```python

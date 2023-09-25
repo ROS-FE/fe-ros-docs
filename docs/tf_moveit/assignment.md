@@ -3,11 +3,11 @@
 At the end of this assignment you will have a set of tools that you can use during the practical part of the workshop. So do your best to make it as useful and easy-to-use as possible.
 
 ### First part of the assignment
-Using the joint state publisher and a simulated robot save various joint and Cartesian space configurations into a Pick file. Use the scripts that you wrote in the previous assignment.
+Using the joint state publisher and a simulated robot save various joint and Cartesian space configurations into a Pickle file. Use the scripts that you wrote in the previous assignment.
 
 
 ### Second part of the assignment
-Using the Pickle file that you created in the first part of the assignment you will publish the message that were stored as `TransformStamped` onto TF. You will do so using the script that you write in the previous assignments.
+Using the Pickle file that you created in the first part of the assignment, you will publish the messages that were stored as `TransformStamped` onto TF. You will do so using the script that you write in the previous assignments.
 
 Next, you will move the simulated robot into these configurations. Help yourselves with the convenient methods: `transformstamped_to_pose` and `get_pose_from_tf`. You will find the code snippets below.
 

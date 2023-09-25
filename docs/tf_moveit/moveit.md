@@ -7,16 +7,18 @@ In this section we will learn how to plan and execute robot trajectories using M
 From their [Github repository](https://github.com/ros-planning/moveit):
 > Easy-to-use open source robotics manipulation platform for developing commercial applications, prototyping designs, and benchmarking algorithms.
 
-The best way to show why MoveIt is cool and how you can use it is by providing a demo. We've prepared a simple launch file that starts Rviz (you will learn about this later) with the MoveIt plug in. You will first need to download and installed the `fe_urko` package available on Github: [https://github.com/ROS-FE/fe_urko](https://github.com/ROS-FE/fe_urko). After installing it and sourcing the workspace, you can run the following launchfile:
+The best way to show why MoveIt is cool and how you can use it is by providing a demo. We've prepared a simple launch file that starts Rviz (you will learn about this later) with the MoveIt plug in. You will first need to download and install the `fe_urko` package available on Github: [https://github.com/ROS-FE/fe_urko](https://github.com/ROS-FE/fe_urko). After installing it and sourcing the workspace, you can run the following launchfile:
 ```
 $ roslaunch fe_urko urko_moveit_demo.launch
 ```
+
+> **Note**: Do not forget to install the dependencies!
 
 <!-- The instructor shows a demo running moveit with `roslaunch fe_ros urko_moveit_demo.launch`  -->
 
 ### Understanding the MoveIt architecture
 
-> **Note**: The images displayed in this section were taken from the documentation avaialbe at https://moveit.ros.org/documentation/concepts/
+> **Note**: The images displayed in this section were taken from the documentation available at https://moveit.ros.org/documentation/concepts/
 
 ![MoveIt architecture](images/moveit_scheme.png)
 
@@ -35,11 +37,11 @@ The URDF file might describe a system with hundreds of frames. The so called sem
 MoveIt is aware of the robot's environment while planning trajectories. This environment can be divided in two groups: the URDF (i.e. robot description, what we know) and the planning scene (what we detect).
 
 
-> The instructor show how to add a cube into the planning scene through the user interface
+> The instructor shows how to add a cube into the planning scene through the user interface
 
 ### MoveIt Python API
 
-Playing with a graphical interface to see how a robot can move in an environment is fun but not too useful for solving practical programs. We are robot programmers, which means we want to write robot programs. This is precisely the aim of this section - explore the Python API and how can it be used to program robot motions.
+Playing with a graphical interface to see how a robot can move in an environment is fun but not too useful for solving practical programs. We are robot programmers, which means we want to write robot programs. This is precisely the aim of this section - explore the Python API and how it can be used to program robot motions.
 
 Let's start with the following code snippet:
 ```python
@@ -159,7 +161,7 @@ Depending on the solution of the inverse kinematic solver, you've probably witne
 Let's try the same approach but this time we get the transform of a frame the we published on the with the `static static_transform_publisher`. Open a separate terminal and type the following:
 
 ```
-$ rosrun tf static_transform_publisher
+$ rosrun tf2_ros static_transform_publisher 0.7 0 0.5 0 0 0 1 base_link target_1
 ```
 
 We modify the Python code into the following (or add it):
@@ -178,7 +180,7 @@ moveit_interface.go(pose_goal, wait=True)
 
 #### Relative motions
 
-If our target frames are nicely aligned to the base frame of the robot (like in the case of `target_1`) it is pretty simply to estimate approach positions. We add a little bit of an offset to the `Z` axis and we that the robot will approach from above. However, what if this is not the case. For instance, the target is rotated tilted by \*some\* degrees (something random, like 42). Then it would be practical, to approach relative to the target's frame.
+If our target frames are nicely aligned to the base frame of the robot (like in the case of `target_1`) it is pretty simple to estimate the approach positions. We add a little bit of an offset to the `Z` axis and we see that the robot will approach from above. However, what if this is not the case. For instance, the target is tilted by \*a few\* degrees (something random, like 42). Then it would be practical to make the approach relative to the target's frame.
 
 To achieve this, we can use `tf` again. This time, we can publish an additional frame to the target frame, and make this our new target. Confusing? Sure, that's why programmers express themselves with code :)
 
@@ -222,6 +224,8 @@ As you can see, it can create a motion target along one of the 6 axis of the end
 moveit_interface.shift_pose_target(1, 0.1)
 moveit_interface.execute(moveit_interface.plan(), wait=True)
 ```
+
+> **Note**: If using Python3, the correct syntax is: `moveit_interface.execute(moveit_interface.plan()[1], wait=True)`
 
 You will notice, that now we don't use the `go()` method anymore but `plan()` and `execute()` in succession. This is also a very valid use of MoveIt as it allows us to evaluate the plans. However, this is not the topic of today's workshop.
 

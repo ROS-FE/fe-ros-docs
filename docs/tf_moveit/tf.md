@@ -23,15 +23,15 @@ The static publisher is very useful to publish spatial transformation data that 
 
 Open three terminals. In the first terminal, run the following command:
 ```
-$ static_transform_publisher 0 0 1 0 0 0 world frame_1 1
+$ rosrun tf2_ros static_transform_publisher 0 0 1 0 0 0 world frame_1 1
 ```
 
 In the second terminal, run the following command:
 ```
-$ static_transform_publisher 0 0 2 0 0 0 frame_1 frame_2  1
+$ rosrun tf2_ros static_transform_publisher 0 0 2 0 0 0 frame_1 frame_2  1
 ```
 
-Leave this two terminals open and switch to the third.
+Leave these two terminals open and switch to the third.
 
 Let's inspect the content of the `/tf_static` topic:
 ```
@@ -41,13 +41,15 @@ What do you see? How many messages did you receive? Are they periodic?
 
 Ok, now let's retrieve the transformation between `world` and `frame_2`. What do you expect to be the result?
 ```
-rosrun tf tf_echo world frame_2
+$ rosrun tf tf_echo world frame_2
 ```
 
 > **Note**: The `tf_echo` tool is very useful to evaluate the transformation between two frames on TF.
 #### Python demonstration
 
-Take the following code snipped and let's dig in:
+Before we proceed we will kill the programs (both `static_transform_publisher`s and `tf_echo`) that we started before.
+
+Let's get our hands dirty with Python right away. Take the following code snipped and create a script called `simple_static_broadcaster.py`:
 
 ```python
 #! /usr/bin/env python
@@ -78,9 +80,13 @@ if __name__ == '__main__':
     rospy.spin()
 ```
 
+Run the script. Explore the `/tf_static` topic again. What do we see?
+
+> **Note**: Do not forget to make it executable with `chmod +x simple_static_broadcaster.py`.
+
 #### Intermediate assignment
 
-Write a Python script that publishes three frames: `world`, `frame_1` and `frame_2`. The relations between them should be as follows:
+Write a Python script (name it `multiple_frames_static.py`) that publishes three frames: `world`, `frame_1` and `frame_2`. The relations between them should be as follows:
 - `frame_1` is offset by 1m along the `Z` axis from `world`
 - `frame_2` is offset by 1m along the `X` axis from `frame_1`
 
@@ -95,13 +101,13 @@ At time 0.000
 
 ### TF publisher
 
-When we want to publish transformation that we know change often, we rather use the "normal" TF publisher. This means, not static.
+When we want to publish transformation that we know change often, we rather use the "normal" TF publisher. That is, not static.
 
 This type of publisher does not have a command line interface. That's why we will dig into a Python example right away.
 
 #### Python demonstration
 
-To start with, let's use the previous script and instead of using `StaticTransformBroadcaster()` we use `TransformBroadcaster()`.
+To start with, let's create a copy of the `simple_static_broadcaster.py` script and call it `simple_tf_broadcaster.py`. Change the file so that instead of `StaticTransformBroadcaster()` we use `TransformBroadcaster()`.
 
 After you modified the file run the script. Observe the contents of `/tf_static` and `/tf` topic. Seeing any messages?
 
@@ -138,9 +144,9 @@ if __name__ == '__main__':
 
 ```
 
-As you see, we no longer require the `rospy.spin()`. That is because we use a `while` loop that does not exit except if we interrupt the execution of the Python script.
+As you see, we no longer require the `rospy.spin()`. That is because we use a `while` loop that does not exit unless we interrupt the execution of the Python script.
 
-Let's inspect the TF topics. As you expect, the `/tf_static` is not publish anything. On the other hand, the `/tf` is publishing a lot of messages:
+Let's inspect the TF topics. As you expect, the `/tf_static` is not publishing anything. On the other hand, the `/tf` is publishing a lot of messages:
 ```
 $ rostopic hz /tf
 subscribed to [/tf]
@@ -152,6 +158,7 @@ Approximately 100 Hz.
 #### Intermediate assignment
 
 Write a Python script that publishes three frames: `world`, `frame_1` and `frame_2`. The relations between them should be as follows:
+
 - `frame_1` is offset by 1m along the `Z` axis from `world`
 - `frame_2` is offset by `sin(t)` along the `X` and `cos(t)` along the `Z` axis from `frame_1`
 
