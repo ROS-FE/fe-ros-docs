@@ -9,7 +9,7 @@ Make sure to store at least 4 configurations and make them "more or less" meanin
 
 Here are a couple of hints that will make your life easier on the long-term (but you will hate on the short-term):
 
-- Always save **both** joints and Cartesian space data: `data['frame1] = [joints, transform]`
+- Always save **both** joints and Cartesian space data: `data['frame1'] = [joints, transform]`
 - Use `raw_input` to define the name under which you want to store data:
 
 ```python
