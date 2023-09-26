@@ -5,6 +5,25 @@ At the end of this assignment you will have a set of tools that you can use duri
 ### First part of the assignment
 Using the joint state publisher and a simulated robot save various joint and Cartesian space configurations into a Pickle file. Use the scripts that you wrote in the previous assignment.
 
+Make sure to store at least 4 configurations and make them "more or less" meaningful. For instance, a "home" position, an "approach" position, an "away from everythin" position, etc.
+
+Here are a couple of hints that will make your life easier on the long-term (but you will hate on the short-term):
+
+- Always save **both** joints and Cartesian space data: `data['frame1] = [joints, transform]`
+- Use `raw_input` to define the name under which you want to store data:
+
+```python
+...
+new_name = raw_input("Please provide the name for the new item")
+...
+transform.child_frame_id = new_name
+data[new_name] = transform
+...
+```
+
+- Visualize the frames in Rviz
+- Try to define the **full path** of the location of the file
+- The names should following the "snake case" style: `this_is_a_name`
 
 ### Second part of the assignment
 Using the Pickle file that you created in the first part of the assignment, you will publish the messages that were stored as `TransformStamped` onto TF. You will do so using the script that you write in the previous assignments.
@@ -44,3 +63,7 @@ def get_pose_from_tf(target, tf_buffer, relative_to='base_link'):
     target_transform = tf_buffer.lookup_transform(relative_to, target, rospy.Time(0))
     return transformstamped_to_pose(target_transform)
 ```
+
+The assignment is completed once you show that your robot moved in at least 4 configurations, both in joint and Cartesian space.
+
+Good luck.
