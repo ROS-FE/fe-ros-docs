@@ -150,6 +150,8 @@ In this assignment you will be creating two different Python scripts that will b
 ### First assignment - store TF data
 Write a Python script that stores the transformation between one frame (e.g. `world`) and another (e.g. `frame_2`) into a Pickle file (make up an extension, for example `.dat`).
 
+> **Note**: Make sure that `robot_state_publisher` and `joint_satate_publisher` are running!
+
 For this assignment we prepared the following code snippet that you should complete:
 ```python
 #! /usr/bin/env python
