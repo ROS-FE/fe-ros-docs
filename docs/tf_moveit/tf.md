@@ -23,12 +23,12 @@ The static publisher is very useful to publish spatial transformation data that 
 
 Open three terminals. In the first terminal, run the following command:
 ```
-$ rosrun tf2_ros static_transform_publisher 0 0 1 0 0 0 world frame_1 1
+$ rosrun tf2_ros static_transform_publisher 0 0 1 0 0 0 world frame_1
 ```
 
 In the second terminal, run the following command:
 ```
-$ rosrun tf2_ros static_transform_publisher 0 0 2 0 0 0 frame_1 frame_2  1
+$ rosrun tf2_ros static_transform_publisher 0 0 2 0 0 0 frame_1 frame_2
 ```
 
 Leave these two terminals open and switch to the third.
@@ -87,6 +87,7 @@ Run the script. Explore the `/tf_static` topic again. What do we see?
 #### Intermediate assignment
 
 Write a Python script (name it `multiple_frames_static.py`) that publishes three frames: `world`, `frame_1` and `frame_2`. The relations between them should be as follows:
+
 - `frame_1` is offset by 1m along the `Z` axis from `world`
 - `frame_2` is offset by 1m along the `X` axis from `frame_1`
 
