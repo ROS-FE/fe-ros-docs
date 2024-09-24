@@ -452,12 +452,22 @@ Now if we change the values using slider on the GUI we can follow the values of 
 
 We will now visualize more complex model of the robot, such as Franka Panda robot.
 
-Copy file [panda.zip](./panda.zip) into folder `urdf` and unzip it.
+Copy file [franka_description.zip](./franka_description.zip) into folder `src` and unzip it.
 
 Run command
 
+
 ```sh
-roslaunch urdf_tutorial display.launch model:='$(find robot_2dof)/urdf/panda/panda.urdf'
+cd src
+catkin_create_pkg franka_description
+cd ../..
+catkin_make
+
+```
+
+
+```sh
+roslaunch urdf_tutorial display.launch model:='$(find franka_description)/urdf/panda.urdf'
 ```
 
 In rviz you need to change *Fixed Frame* (in *Global Options*) to *panda_link0*.
